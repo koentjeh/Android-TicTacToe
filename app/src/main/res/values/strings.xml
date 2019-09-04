@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="app_title">Tic Tac Toe</string>
+
+    <string name="startGame">Start Game</string>
+    <string name="exit">Exit</string>
+
+    <string name="figureX">X</string>
+    <string name="figureO">O</string>
+    <string name="friend">Friend</string>
+    <string name="computerNormal">Normal</string>
+    <string name="computerImpossible">Impossible</string>
+
+    <string name="aboutUs">About</string>
+
+    <string name="options">Options</string>
+    <string name="restart">Restart</string>
+</resources>

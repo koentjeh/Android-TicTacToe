@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/MenuButtons"
+        android:layout_marginBottom="40dp"
+        android:text="@string/app_title"
+        android:textAlignment="center"
+        android:textColor="@color/white_text"
+        android:textSize="48sp" />
+
+    <LinearLayout
+        android:id="@+id/MenuButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonStartGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/accent"
+            android:text="@string/startGame"
+            android:textColor="@color/white_text"
+            android:paddingStart="26dp"
+            android:paddingEnd="26dp"/>
+
+        <Button
+            android:id="@+id/buttonAboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/accent"
+            android:text="@string/aboutUs"
+            android:textColor="@color/white_text"
+            android:paddingStart="26dp"
+            android:paddingEnd="26dp"/>
+
+        <Button
+            android:id="@+id/closeApplication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/accent"
+            android:text="@string/exit"
+            android:textColor="@color/white_text" />
+    </LinearLayout>
+</RelativeLayout>
