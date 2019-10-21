@@ -22,7 +22,7 @@ public class PregameActivity extends AppCompatActivity {
         setContentView(R.layout.pregameactivity);
 
         // init
-        setDifficulty(Difficulties.IMPOSSIBLE);
+        setDifficulty(Difficulties.NONE);
         setFigure(Figures.X);
 
         //figure
@@ -36,18 +36,25 @@ public class PregameActivity extends AppCompatActivity {
         });
 
         // difficulty
-        Button buttonFriend = findViewById(R.id.Friend);
-        Button buttonNormal = findViewById(R.id.ComputerNormal);
-        Button buttonImpossible = findViewById(R.id.ComputerImpossible);
-        buttonFriend.setOnClickListener(new View.OnClickListener() {
+        Button buttonNone = findViewById(R.id.ComputerNone);
+        Button buttonRandom = findViewById(R.id.ComputerRandom);
+        Button buttonLogic = findViewById(R.id.ComputerLogic);
+        Button buttonMinMax = findViewById(R.id.ComputerMinMax);
+        Button buttonBigData = findViewById(R.id.ComputerBigData);
+        buttonNone.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { setDifficulty(Difficulties.NONE); }
         });
-        buttonNormal.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.NORMAL);
-            }
+        buttonRandom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { setDifficulty(Difficulties.RANDOM); }
         });
-        buttonImpossible.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.IMPOSSIBLE); }
+        buttonLogic.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { setDifficulty(Difficulties.LOGIC); }
+        });
+        buttonMinMax.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { setDifficulty(Difficulties.MINMAX); }
+        });
+        buttonBigData.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { setDifficulty(Difficulties.BIGDATA); }
         });
 
         // start
@@ -63,40 +70,52 @@ public class PregameActivity extends AppCompatActivity {
     }
 
     private void setDifficulty(Difficulties d) {
-        Button buttonFriend = findViewById(R.id.Friend);
-        Button buttonNormal = findViewById(R.id.ComputerNormal);
-        Button buttonImpossible = findViewById(R.id.ComputerImpossible);
-        int accentColor = getResources().getColor(R.color.accent);
+        Button buttonNone = findViewById(R.id.ComputerNone);
+        Button buttonRandom = findViewById(R.id.ComputerRandom);
+        Button buttonLogic = findViewById(R.id.ComputerLogic);
+        Button buttonMinMax = findViewById(R.id.ComputerMinMax);
+        Button buttonBigData = findViewById(R.id.ComputerBigData);
+        int secondaryColor = getResources().getColor(R.color.secondary);
 
-        buttonFriend.setBackgroundColor(accentColor);
-        buttonNormal.setBackgroundColor(accentColor);
-        buttonImpossible.setBackgroundColor(accentColor);
+        buttonNone.setBackgroundColor(secondaryColor);
+        buttonRandom.setBackgroundColor(secondaryColor);
+        buttonLogic.setBackgroundColor(secondaryColor);
+        buttonMinMax.setBackgroundColor(secondaryColor);
+        buttonBigData.setBackgroundColor(secondaryColor);
 
         switch (d) {
             case NONE:
                 this.difficulty = Difficulties.NONE;
-                buttonFriend.setBackgroundColor(Color.GREEN);
+                buttonNone.setBackgroundColor(Color.GREEN);
                 break;
-            case NORMAL:
-                this.difficulty = Difficulties.NORMAL;
-                buttonNormal.setBackgroundColor(Color.GREEN);
+            case RANDOM:
+                this.difficulty = Difficulties.RANDOM;
+                buttonRandom.setBackgroundColor(Color.GREEN);
                 break;
-            case IMPOSSIBLE:
-                this.difficulty = Difficulties.IMPOSSIBLE;
-                buttonImpossible.setBackgroundColor(Color.GREEN);
+            case LOGIC:
+                this.difficulty = Difficulties.LOGIC;
+                buttonLogic.setBackgroundColor(Color.GREEN);
+                break;
+            case MINMAX:
+                this.difficulty = Difficulties.MINMAX;
+                buttonMinMax.setBackgroundColor(Color.GREEN);
+                break;
+            case BIGDATA:
+                this.difficulty = Difficulties.BIGDATA;
+                buttonBigData.setBackgroundColor(Color.GREEN);
                 break;
             default:
-                break;
+                throw new UnsupportedOperationException("This Type Of Computer Is Not Implemented.");
         }
     }
 
     private void setFigure(Figures f) {
         Button buttonX = findViewById(R.id.X);
         Button buttonO = findViewById(R.id.O);
-        int accentColor = getResources().getColor(R.color.accent);
+        int secondaryColor = getResources().getColor(R.color.secondary);
 
-        buttonX.setBackgroundColor(accentColor);
-        buttonO.setBackgroundColor(accentColor);
+        buttonX.setBackgroundColor(secondaryColor);
+        buttonO.setBackgroundColor(secondaryColor);
 
         this.figure = f;
 

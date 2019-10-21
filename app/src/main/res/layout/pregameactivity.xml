@@ -1,136 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    android:orientation="vertical"
-    android:weightSum="10">
-
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.02"
-        android:gravity="center_horizontal|center"
-        android:padding="20dp"
-        android:text="@string/app_title"
-        android:textColor="@color/white_text"
-        android:textSize="40sp" />
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="8"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:weightSum="10">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"></RelativeLayout>
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center"
+            android:paddingBottom="20dp"
+            android:text="@string/app_title"
+            android:textColor="@color/secondary_text"
+            android:textSize="40sp" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/X"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="0.5"
-                    android:background="@color/accent"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/figureX"
-                    android:textColor="@color/white_text"
-                    android:textSize="30sp" />
-
-                <Button
-                    android:id="@+id/O"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:background="@color/accent"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/figureO"
-                    android:textColor="@color/white_text"
-                    android:textSize="30sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/Friend"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="0.5"
-                    android:background="@color/accent"
-                    android:clickable="false"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/friend"
-                    android:textColor="@color/white_text"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/ComputerNormal"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="0.5"
-                    android:background="@color/accent"
-                    android:clickable="false"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/computerNormal"
-                    android:textColor="@color/white_text"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/ComputerImpossible"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:background="@color/accent"
-                    android:clickable="false"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/computerImpossible"
-                    android:textColor="@color/white_text"
-                    android:textSize="18sp" />
-            </LinearLayout>
+            android:layout_marginBottom="18dp"
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/startGame"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/accent"
-                android:text="@string/startGame"
-                android:textColor="@color/white_text"
-                android:textSize="18sp" />
+                android:id="@+id/X"
+                style="@style/Button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/figureX" />
+
+            <Button
+                android:id="@+id/O"
+                style="@style/Button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/figureO" />
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"></RelativeLayout>
+        <TextView
+            android:id="@+id/textViewDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/Computer"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_text"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/ComputerNone"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/ComputerNone" />
+
+            <Button
+                android:id="@+id/ComputerRandom"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/ComputerRandom" />
+
+            <Button
+                android:id="@+id/ComputerLogic"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/ComputerLogic" />
+
+            <Button
+                android:id="@+id/ComputerMinMax"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:clickable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/ComputerMinMax" />
+
+            <Button
+                android:id="@+id/ComputerBigData"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:clickable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/ComputerBigData" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/startGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondary"
+            android:text="@string/startGame"
+            android:textColor="@color/secondary_text"
+            android:textSize="18sp" />
+
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

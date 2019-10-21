@@ -7,9 +7,13 @@
 
     <string name="figureX">X</string>
     <string name="figureO">O</string>
-    <string name="friend">Friend</string>
-    <string name="computerNormal">Normal</string>
-    <string name="computerImpossible">Impossible</string>
+
+    <string name="Computer">Computer</string>
+    <string name="ComputerNone">None</string>
+    <string name="ComputerRandom">Random</string>
+    <string name="ComputerLogic">Logic</string>
+    <string name="ComputerMinMax">MinMax</string>
+    <string name="ComputerBigData">Big Data</string>
 
     <string name="aboutUs">About</string>
 

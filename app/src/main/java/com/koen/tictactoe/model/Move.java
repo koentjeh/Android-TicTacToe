@@ -21,6 +21,10 @@ public class Move {
     public boolean  isEndingMove()      { return isEndingMove; }
     public String   getEndingMessage()  { return endingMessage; }
 
+    public void setFigure(Figures figure) {
+        this.figure = figure;
+    }
+
     public void setEndingMove(String message) {
         this.isEndingMove = true;
         this.endingMessage = message;

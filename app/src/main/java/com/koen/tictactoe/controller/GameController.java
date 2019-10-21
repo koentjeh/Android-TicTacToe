@@ -2,16 +2,18 @@ package com.koen.tictactoe.controller;
 
 import android.util.Log;
 
+import com.koen.tictactoe.controller.computer.BigDataComputerController;
 import com.koen.tictactoe.controller.computer.IComputerController;
-import com.koen.tictactoe.controller.computer.ImpossibleComputerController;
-import com.koen.tictactoe.controller.computer.NormalComputerController;
+import com.koen.tictactoe.controller.computer.LogicComputerController;
+import com.koen.tictactoe.controller.computer.MinMaxComputerController;
+import com.koen.tictactoe.controller.computer.RandomComputerController;
 import com.koen.tictactoe.model.Board;
 import com.koen.tictactoe.model.Move;
 
 public class GameController {
     private static final String TAG = "GameController";
 
-    public enum Difficulties        { NONE, NORMAL, IMPOSSIBLE }
+    public enum Difficulties        { NONE, RANDOM, LOGIC, MINMAX, BIGDATA }
     public enum Figures             { BLANK, X, O }
 
     private Board                   board = new Board();
@@ -35,7 +37,7 @@ public class GameController {
     }
 
     public Move makeMoveComputer() {
-        Move move = computer.makeMove(board.getBoard());
+        Move move = computer.makeMove(board);
         board.updateBoard(move);
         move = isEndingMove(move);
         logMove(move);
@@ -66,24 +68,28 @@ public class GameController {
     // Set Computer Difficulty And Figure
     private void configureComputer(Difficulties difficulty, Figures figure) {
         // Select Other Figure As Player Figure
-        Figures f = (figure == Figures.X) ? Figures.O : Figures.X;
+        Figures computerFigure = (figure == Figures.X) ? Figures.O : Figures.X;
 
         switch (difficulty) {
             case NONE:
                 this.computer = null;
                 break;
-            case NORMAL:
-                this.computer = new NormalComputerController(f);
+            case RANDOM:
+                this.computer = new RandomComputerController(computerFigure);
                 break;
-            case IMPOSSIBLE:
-                this.computer = new ImpossibleComputerController(f);
+            case LOGIC:
+                this.computer = new LogicComputerController(computerFigure);
+                break;
+            case MINMAX:
+                this.computer = new MinMaxComputerController(computerFigure);
+                break;
+            case BIGDATA:
+                this.computer = new BigDataComputerController(computerFigure);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + difficulty);
         }
     }
-
-
 
     private void logMove(Move move) {
         Log.i(TAG, "Move " + move.getFigure() + " = " + move.getY() + ":" + move.getX() + " | IsEndingMove?:" + move.isEndingMove() + " - " + move.getEndingMessage());

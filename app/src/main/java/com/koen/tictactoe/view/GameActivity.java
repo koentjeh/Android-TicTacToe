@@ -76,26 +76,27 @@ public class GameActivity extends AppCompatActivity {
                 boardTiles[y][x].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                    textViewPlayerTurn.setText("Waiting For " + gameController.getTurn());
-                    Move playerMove = gameController.makeMove(tileNumberY, tileNumberX);
-                    boardTiles[playerMove.getY()][playerMove.getX()].setText(String.valueOf(playerMove.getFigure()));
-                    boardTiles[playerMove.getY()][playerMove.getX()].setEnabled(false);
 
-                    if (playerMove.isEndingMove()) {
-                        toEndingScreen(playerMove.getEndingMessage());
-                        return;
-                    }
-
-                    if (gameController.isComputerConfigured()){
                         textViewPlayerTurn.setText("Waiting For " + gameController.getTurn());
-                        Move computerMove = gameController.makeMoveComputer();
-                        boardTiles[computerMove.getY()][computerMove.getX()].setText(String.valueOf(computerMove.getFigure()));
-                        boardTiles[computerMove.getY()][computerMove.getX()].setEnabled(false);
+                        Move playerMove = gameController.makeMove(tileNumberY, tileNumberX);
+                        boardTiles[playerMove.getY()][playerMove.getX()].setText(String.valueOf(playerMove.getFigure()));
+                        boardTiles[playerMove.getY()][playerMove.getX()].setEnabled(false);
 
-                        if (computerMove.isEndingMove()) {
-                            toEndingScreen(computerMove.getEndingMessage());
+                        if (playerMove.isEndingMove()) {
+                            toEndingScreen(playerMove.getEndingMessage());
+                            return;
                         }
-                    }
+
+                        if (gameController.isComputerConfigured()){
+                            textViewPlayerTurn.setText("Waiting For " + gameController.getTurn());
+                            Move computerMove = gameController.makeMoveComputer();
+                            boardTiles[computerMove.getY()][computerMove.getX()].setText(String.valueOf(computerMove.getFigure()));
+                            boardTiles[computerMove.getY()][computerMove.getX()].setEnabled(false);
+
+                            if (computerMove.isEndingMove()) {
+                                toEndingScreen(computerMove.getEndingMessage());
+                            }
+                        }
                     }
                 });
             }

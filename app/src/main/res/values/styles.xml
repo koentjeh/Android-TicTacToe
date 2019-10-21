@@ -1,5 +1,20 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fontFamily">@font/heebo_bold</item>
+        <item name="android:fontFamily">@font/nexa_bold</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="Button" parent="android:Widget.Button">
+        <item name="android:background">@color/secondary</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingStart">26dp</item>
+        <item name="android:paddingEnd">26dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 </resources>
