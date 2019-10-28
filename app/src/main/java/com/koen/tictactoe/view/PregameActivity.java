@@ -1,12 +1,13 @@
 package com.koen.tictactoe.view;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.koen.tictactoe.R;
 import com.koen.tictactoe.controller.GameController.Difficulties;
@@ -22,7 +23,7 @@ public class PregameActivity extends AppCompatActivity {
         setContentView(R.layout.pregameactivity);
 
         // init
-        setDifficulty(Difficulties.NONE);
+        setDifficulty(Difficulties.MINMAX);
         setFigure(Figures.X);
 
         //figure
@@ -75,34 +76,35 @@ public class PregameActivity extends AppCompatActivity {
         Button buttonLogic = findViewById(R.id.ComputerLogic);
         Button buttonMinMax = findViewById(R.id.ComputerMinMax);
         Button buttonBigData = findViewById(R.id.ComputerBigData);
-        int secondaryColor = getResources().getColor(R.color.secondary);
+        Drawable buttonBackground = ResourcesCompat.getDrawable(getResources(), R.drawable.button_background, null);
+        Drawable buttonSelectedBackground = ResourcesCompat.getDrawable(getResources(), R.drawable.button_selected_background, null);
 
-        buttonNone.setBackgroundColor(secondaryColor);
-        buttonRandom.setBackgroundColor(secondaryColor);
-        buttonLogic.setBackgroundColor(secondaryColor);
-        buttonMinMax.setBackgroundColor(secondaryColor);
-        buttonBigData.setBackgroundColor(secondaryColor);
+        buttonNone.setBackground(buttonBackground);
+        buttonRandom.setBackground(buttonBackground);
+        buttonLogic.setBackground(buttonBackground);
+        buttonMinMax.setBackground(buttonBackground);
+        buttonBigData.setBackground(buttonBackground);
 
         switch (d) {
             case NONE:
                 this.difficulty = Difficulties.NONE;
-                buttonNone.setBackgroundColor(Color.GREEN);
+                buttonNone.setBackground(buttonSelectedBackground);
                 break;
             case RANDOM:
                 this.difficulty = Difficulties.RANDOM;
-                buttonRandom.setBackgroundColor(Color.GREEN);
+                buttonRandom.setBackground(buttonSelectedBackground);
                 break;
             case LOGIC:
                 this.difficulty = Difficulties.LOGIC;
-                buttonLogic.setBackgroundColor(Color.GREEN);
+                buttonLogic.setBackground(buttonSelectedBackground);
                 break;
             case MINMAX:
                 this.difficulty = Difficulties.MINMAX;
-                buttonMinMax.setBackgroundColor(Color.GREEN);
+                buttonMinMax.setBackground(buttonSelectedBackground);
                 break;
             case BIGDATA:
                 this.difficulty = Difficulties.BIGDATA;
-                buttonBigData.setBackgroundColor(Color.GREEN);
+                buttonBigData.setBackground(buttonSelectedBackground);
                 break;
             default:
                 throw new UnsupportedOperationException("This Type Of Computer Is Not Implemented.");
@@ -112,19 +114,17 @@ public class PregameActivity extends AppCompatActivity {
     private void setFigure(Figures f) {
         Button buttonX = findViewById(R.id.X);
         Button buttonO = findViewById(R.id.O);
-        int secondaryColor = getResources().getColor(R.color.secondary);
-
-        buttonX.setBackgroundColor(secondaryColor);
-        buttonO.setBackgroundColor(secondaryColor);
+        buttonX.setTextColor(getResources().getColor(R.color.text_color));
+        buttonO.setTextColor(getResources().getColor(R.color.text_color));
 
         this.figure = f;
 
         switch (f) {
             case X:
-                buttonX.setBackgroundColor(Color.GREEN);
+                buttonX.setTextColor(getResources().getColor(R.color.red));
                 break;
             case O:
-                buttonO.setBackgroundColor(Color.GREEN);
+                buttonO.setTextColor(getResources().getColor(R.color.blue));
                 break;
             default:
                 break;

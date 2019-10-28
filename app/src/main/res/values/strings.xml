@@ -17,6 +17,8 @@
 
     <string name="aboutUs">About</string>
 
-    <string name="options">Options</string>
-    <string name="restart">Restart</string>
+    <string name="Congratulations">Congratulations!</string>
+    <string name="HasWonGame">has won the game</string>
+    <string name="Options">Options</string>
+    <string name="Restart">Restart</string>
 </resources>

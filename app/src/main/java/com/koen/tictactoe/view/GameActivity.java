@@ -80,6 +80,8 @@ public class GameActivity extends AppCompatActivity {
                         textViewPlayerTurn.setText("Waiting For " + gameController.getTurn());
                         Move playerMove = gameController.makeMove(tileNumberY, tileNumberX);
                         boardTiles[playerMove.getY()][playerMove.getX()].setText(String.valueOf(playerMove.getFigure()));
+                        if (playerMove.getFigure() == Figures.X) boardTiles[playerMove.getY()][playerMove.getX()].setTextColor(getResources().getColor(R.color.red));
+                        else boardTiles[playerMove.getY()][playerMove.getX()].setTextColor(getResources().getColor(R.color.blue));
                         boardTiles[playerMove.getY()][playerMove.getX()].setEnabled(false);
 
                         if (playerMove.isEndingMove()) {
@@ -91,6 +93,8 @@ public class GameActivity extends AppCompatActivity {
                             textViewPlayerTurn.setText("Waiting For " + gameController.getTurn());
                             Move computerMove = gameController.makeMoveComputer();
                             boardTiles[computerMove.getY()][computerMove.getX()].setText(String.valueOf(computerMove.getFigure()));
+                            if (computerMove.getFigure() == Figures.X) boardTiles[computerMove.getY()][computerMove.getX()].setTextColor(getResources().getColor(R.color.red));
+                            else boardTiles[computerMove.getY()][computerMove.getX()].setTextColor(getResources().getColor(R.color.blue));
                             boardTiles[computerMove.getY()][computerMove.getX()].setEnabled(false);
 
                             if (computerMove.isEndingMove()) {
@@ -101,6 +105,14 @@ public class GameActivity extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    private void toEndingScreen(String message) {
+        Intent intent = new Intent(getBaseContext(), EndGameActivity.class);
+        intent.putExtra("endingMessage", message);
+        intent.putExtra("difficulty", this.selectedDifficulty);
+        intent.putExtra("figure", this.selectedFigure);
+        startActivity(intent);
     }
 
     @Override
@@ -120,12 +132,4 @@ public class GameActivity extends AppCompatActivity {
             }
         }, 2000);
     } // Disable Back Button Until Pressed Twice
-
-    private void toEndingScreen(String message) {
-        Intent intent = new Intent(getBaseContext(), EndGameActivity.class);
-        intent.putExtra("endingMessage", message);
-        intent.putExtra("difficulty", this.selectedDifficulty);
-        intent.putExtra("figure", this.selectedFigure);
-        startActivity(intent);
-    }
 }

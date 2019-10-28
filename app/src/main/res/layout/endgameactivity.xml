@@ -1,61 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerInParent="false"
-    android:layout_centerHorizontal="false"
-    android:layout_centerVertical="false"
-    android:background="@color/primary">
+    android:orientation="vertical"
+    android:weightSum="12"
+    android:background="@color/background_light">
 
-    <TextView
-        android:id="@+id/TextViewWinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/imageView"
-        android:textAlignment="center"
-        android:textColor="@color/primary_text"
-        android:textSize="36sp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_like" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_ending"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="2"
+        android:scaleType="fitEnd"
+        app:lottie_autoPlay="true"
+        app:lottie_colorFilter="@color/red"
+        app:lottie_fileName="celebrate.json"
+        app:lottie_loop="true" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="4">
 
-        <Button
+        <TextView
+            android:id="@+id/TextViewCongratulations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/product_sans_bold"
+            android:textSize="36sp"
+            android:textColor="@color/text_color"
+            android:text="@string/Congratulations" />
+
+        <TextView
+            android:id="@+id/TextViewWinnerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/TextViewWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textSize="24sp"
+            android:fontFamily="@font/product_sans_regular"
+            android:text="@string/HasWonGame"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="6"
+        android:gravity="top|center">
+
+        <Button style="@style/Button"
             android:id="@+id/OptionsButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:background="@color/secondary"
-            android:paddingStart="26dp"
-            android:paddingEnd="26dp"
-            android:text="@string/options"
-            android:textColor="@color/secondary_text" />
+            android:text="@string/Options" />
 
-        <Button
+        <Button style="@style/Button"
             android:id="@+id/RestartButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="@color/secondary"
-            android:paddingStart="26dp"
-            android:paddingEnd="26dp"
-            android:text="@string/restart"
-            android:textColor="@color/secondary_text" />
+            android:text="@string/Restart" />
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

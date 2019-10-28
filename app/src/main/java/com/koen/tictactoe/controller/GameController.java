@@ -19,7 +19,7 @@ public class GameController {
     private Board                   board = new Board();
     private IComputerController     computer;
     private Figures                 turn;
-    private int                     turnCount = 0;
+    private int                     turnCount = 1;
 
     public GameController(Difficulties difficulty, Figures figure) {
         this.configureComputer(difficulty, figure);
@@ -32,7 +32,6 @@ public class GameController {
         Move move = new Move(y, x, this.turn);
         board.updateBoard(move);
         move = isEndingMove(move);
-        logMove(move);
         return move;
     }
 
@@ -40,13 +39,14 @@ public class GameController {
         Move move = computer.makeMove(board);
         board.updateBoard(move);
         move = isEndingMove(move);
-        logMove(move);
         return move;
     }
 
     private Move isEndingMove(Move move) {
+        Log.i(TAG, "Current turn = " + turnCount);
+
         if (board.isWinningMove(move)) {
-            move.setEndingMove("Player " + this.turn + " Has Won The Game");
+            move.setEndingMove(this.turn.toString());
         } else if (turnCount >= 9) {
             move.setEndingMove("The Game Ended In A Tie");
         } else nextTurn();

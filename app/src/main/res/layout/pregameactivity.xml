@@ -1,126 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_light"
+    android:weightSum="12">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/X"
+            style="@style/PreGameButton"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="@string/figureX" />
+
+        <Button style="@style/PreGameButton"
+            android:id="@+id/O"
+            android:gravity="center"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="@string/figureO" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewDifficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/Computer"
+        android:textAllCaps="true"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/product_sans_bold"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_weight="5"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/appTitle"
+        <Button style="@style/Button"
+            android:id="@+id/ComputerNone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center"
-            android:paddingBottom="20dp"
-            android:text="@string/app_title"
-            android:textColor="@color/secondary_text"
-            android:textSize="40sp" />
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ComputerNone" />
 
-        <LinearLayout
+        <Button style="@style/Button"
+            android:id="@+id/ComputerRandom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:orientation="horizontal">
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ComputerRandom" />
 
-            <Button
-                android:id="@+id/X"
-                style="@style/Button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/figureX" />
-
-            <Button
-                android:id="@+id/O"
-                style="@style/Button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/figureO" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textViewDifficulty"
+        <Button style="@style/Button"
+            android:id="@+id/ComputerLogic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/Computer"
-            android:textAllCaps="true"
-            android:textColor="@color/primary_text"
-            android:textSize="24sp" />
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ComputerLogic" />
 
-        <LinearLayout
+        <Button style="@style/Button"
+            android:id="@+id/ComputerMinMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="20dp"
+            android:clickable="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ComputerMinMax" />
 
-            <Button
-                android:id="@+id/ComputerNone"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/ComputerNone" />
-
-            <Button
-                android:id="@+id/ComputerRandom"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/ComputerRandom" />
-
-            <Button
-                android:id="@+id/ComputerLogic"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/ComputerLogic" />
-
-            <Button
-                android:id="@+id/ComputerMinMax"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:clickable="false"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/ComputerMinMax" />
-
-            <Button
-                android:id="@+id/ComputerBigData"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:clickable="false"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/ComputerBigData" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/startGame"
+        <Button style="@style/Button"
+            android:id="@+id/ComputerBigData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/secondary"
-            android:text="@string/startGame"
-            android:textColor="@color/secondary_text"
-            android:textSize="18sp" />
-
+            android:clickable="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ComputerBigData" />
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_gravity="top|center_horizontal">
+
+        <Button style="@style/Button"
+            android:id="@+id/startGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/startGame" />
+    </LinearLayout>
+</LinearLayout>

@@ -23,8 +23,8 @@ public class EndGameActivity extends AppCompatActivity {
         final Difficulties difficulty = (Difficulties) intent.getSerializableExtra("difficulty");
         final Figures figure = (Figures) intent.getSerializableExtra("figure");
 
-        TextView textViewWinner = findViewById(R.id.TextViewWinner);
-        textViewWinner.setText(winnerText);
+        TextView textViewWinnerName = findViewById(R.id.TextViewWinnerName);
+        textViewWinnerName.setText(winnerText);
 
         Button buttonOptions = findViewById(R.id.OptionsButton);
         buttonOptions.setOnClickListener(new View.OnClickListener() {

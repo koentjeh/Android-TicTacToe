@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background_light"
+    android:weightSum="12">
 
     <TextView
         android:id="@+id/textView"
         style="@style/TitleText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/MenuButtons"
-        android:layout_marginBottom="40dp"
-        android:text="@string/app_title"
-        android:textAlignment="center"
-        android:textColor="@color/primary_text"/>
+        android:text="@string/app_name"
+        android:layout_gravity="center"
+        android:gravity="bottom|center"
+        android:layout_weight="3"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_colorFilter="@color/red"
+        app:lottie_fileName="heart-animation.json"
+        app:lottie_loop="true"
+        android:layout_gravity="center_horizontal"
+        android:foregroundGravity="center"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:id="@+id/MenuButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="6">
 
-        <Button
+        <Button style="@style/Button"
             android:id="@+id/buttonStartGame"
-            style="@style/Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/startGame" />
 
-        <Button
+        <Button style="@style/Button"
             android:id="@+id/buttonAboutUs"
-            style="@style/Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/aboutUs" />
 
-        <Button
+        <Button style="@style/Button"
             android:id="@+id/closeApplication"
-            style="@style/Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/exit" />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

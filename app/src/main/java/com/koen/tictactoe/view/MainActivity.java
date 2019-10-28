@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.koen.tictactoe.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PregameActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        Button buttonAboutUs = findViewById(R.id.buttonAboutUs);
+        buttonAboutUs.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
             }
         });
     }
