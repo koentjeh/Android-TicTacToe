@@ -17,7 +17,7 @@ public class GameController {
     public enum Figures             { BLANK, X, O }
 
     private Board                   board = new Board();
-    private IComputerController     computer;
+    private IComputerController computer;
     private Figures                 turn;
     private int                     turnCount = 1;
 
@@ -43,8 +43,6 @@ public class GameController {
     }
 
     private Move isEndingMove(Move move) {
-        Log.i(TAG, "Current turn = " + turnCount);
-
         if (board.isWinningMove(move)) {
             move.setEndingMove(this.turn.toString());
         } else if (turnCount >= 9) {
