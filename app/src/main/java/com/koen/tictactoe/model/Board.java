@@ -1,27 +1,21 @@
 package com.koen.tictactoe.model;
 
-import com.koen.tictactoe.controller.GameController.Figures;
+import com.koen.tictactoe.controller.GameController.Player;
 
 public class Board {
-    private Object[][]  board;
-    private boolean     isGameOver;
+    private Object[][] board;
 
     public Board() {
         this.board = new Object[3][3];
-        this.isGameOver = false;
-        for (int y = 0; y < 3; y++) for (int x = 0; x < 3; x++) this.board[y][x] = Figures.BLANK;
+        for (int y = 0; y < 3; y++) for (int x = 0; x < 3; x++) this.board[y][x] = Player.BLANK;
     }
 
     public Object[][] getBoard() {
         return this.board;
     }
 
-    public boolean isGameOver() {
-        return isGameOver;
-    }
-
     public void updateBoard(Move move) {
-        this.board[move.getY()][move.getX()] = move.getFigure();
+        this.board[move.getY()][move.getX()] = move.getPlayer();
     }
 
     public boolean isWinningMove(Move move) {
@@ -30,30 +24,27 @@ public class Board {
 
         for (int i = 0; i < 3; i++) {
             // check column
-            if (this.board[i][move.getX()] == move.getFigure()) column++;
+            if (this.board[i][move.getX()] == move.getPlayer()) column++;
             // check row
-            if (this.board[move.getY()][i] == move.getFigure()) row++;
+            if (this.board[move.getY()][i] == move.getPlayer()) row++;
         }
 
         // validate row & column
         if (column == 3 || row == 3) {
-            this.isGameOver = true;
             return true;
         }
 
         // check diagonal
         if (this.board[0][0] == this.board[1][1] &&
             this.board[0][0] == this.board[2][2] &&
-            this.board[1][1] != Figures.BLANK) {
-                this.isGameOver = true;
+            this.board[1][1] != Player.BLANK) {
                 return true;
         }
 
         // check anti diagonal
         if (this.board[2][0] == this.board[1][1] &&
             this.board[2][0] == this.board[0][2] &&
-            this.board[1][1] != Figures.BLANK) {
-                this.isGameOver = true;
+            this.board[1][1] != Player.BLANK) {
                 return true;
         }
 

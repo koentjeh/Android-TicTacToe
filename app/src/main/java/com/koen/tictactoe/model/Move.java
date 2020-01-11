@@ -1,32 +1,27 @@
 package com.koen.tictactoe.model;
 
-import com.koen.tictactoe.controller.GameController.Figures;
+import com.koen.tictactoe.controller.GameController.Player;
+import java.io.Serializable;
 
-public class Move {
-    private int         y;
-    private int         x;
-    private Figures     figure;
-    private boolean     isEndingMove = false;
-    private String      endingMessage;
+public class Move implements Serializable {
+    private int     y;
+    private int     x;
+    private Player  player;
+    private boolean isEndingMove = false;
 
-    public Move(int y, int x, Figures figure) {
+    public Move(int y, int x, Player player){
         this.y = y;
         this.x = x;
-        this.figure = figure;
+        this.player = player;
     }
 
-    public int      getY()              { return y; }
-    public int      getX()              { return x; }
-    public Figures  getFigure()         { return figure; }
-    public boolean  isEndingMove()      { return isEndingMove; }
-    public String   getEndingMessage()  { return endingMessage; }
-
-    public void setFigure(Figures figure) {
-        this.figure = figure;
-    }
-
-    public void setEndingMove(String message) {
+    public Move(Player player){
         this.isEndingMove = true;
-        this.endingMessage = message;
+        this.player = player;
     }
+
+    public int      getY()          { return y; }
+    public int      getX()          { return x; }
+    public Player   getPlayer()     { return player; }
+    public boolean  isEndingMove()  { return isEndingMove; }
 }

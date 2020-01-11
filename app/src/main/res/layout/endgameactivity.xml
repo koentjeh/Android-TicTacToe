@@ -27,25 +27,15 @@
         android:layout_weight="4">
 
         <TextView
-            android:id="@+id/TextViewCongratulations"
+            android:id="@+id/TextViewEndingMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:fontFamily="@font/product_sans_bold"
-            android:textSize="36sp"
-            android:textColor="@color/text_color"
-            android:text="@string/Congratulations" />
-
-        <TextView
-            android:id="@+id/TextViewWinnerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="@font/product_sans_regular"
             android:gravity="center"
+            android:layout_marginBottom="26dp"
+            android:text="@string/Congratulations"
             android:textColor="@color/text_color"
-            android:textSize="24sp"/>
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/TextViewWinner"

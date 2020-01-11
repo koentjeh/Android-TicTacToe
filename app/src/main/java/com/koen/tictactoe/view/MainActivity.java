@@ -7,18 +7,15 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.koen.tictactoe.R;
+import com.koen.tictactoe.controller.API.NetworkManager;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainactivity);
+        NetworkManager.getInstance(this);
 
         Button buttonStartGame = findViewById(R.id.buttonStartGame);
         buttonStartGame.setOnClickListener(new View.OnClickListener() {
@@ -28,12 +25,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final RequestQueue queue = Volley.newRequestQueue(this);
-
         Button buttonAboutUs = findViewById(R.id.buttonAboutUs);
         buttonAboutUs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
             }
         });
     }

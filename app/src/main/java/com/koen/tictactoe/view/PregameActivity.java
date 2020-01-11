@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.koen.tictactoe.R;
-import com.koen.tictactoe.controller.GameController.Difficulties;
-import com.koen.tictactoe.controller.GameController.Figures;
+import com.koen.tictactoe.controller.GameController.Computer;
+import com.koen.tictactoe.controller.GameController.Player;
 
 public class PregameActivity extends AppCompatActivity {
-    private Difficulties    difficulty;
-    private Figures         figure;
+    private Computer computerType;
+    private Player   selectedPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +23,17 @@ public class PregameActivity extends AppCompatActivity {
         setContentView(R.layout.pregameactivity);
 
         // init
-        setDifficulty(Difficulties.MINMAX);
-        setFigure(Figures.X);
+        setDifficulty(computerType.MINMAX);
+        setFigure(Player.X);
 
         //figure
         Button buttonX = findViewById(R.id.X);
         Button buttonO = findViewById(R.id.O);
         buttonX.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setFigure(Figures.X); }
+            public void onClick(View v) { setFigure(Player.X); }
         });
         buttonO.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setFigure(Figures.O); }
+            public void onClick(View v) { setFigure(Player.O); }
         });
 
         // difficulty
@@ -43,19 +43,19 @@ public class PregameActivity extends AppCompatActivity {
         Button buttonMinMax = findViewById(R.id.ComputerMinMax);
         Button buttonBigData = findViewById(R.id.ComputerBigData);
         buttonNone.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.NONE); }
+            public void onClick(View v) { setDifficulty(computerType.NONE); }
         });
         buttonRandom.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.RANDOM); }
+            public void onClick(View v) { setDifficulty(computerType.RANDOM); }
         });
         buttonLogic.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.LOGIC); }
+            public void onClick(View v) { setDifficulty(computerType.LOGIC); }
         });
         buttonMinMax.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.MINMAX); }
+            public void onClick(View v) { setDifficulty(computerType.MINMAX); }
         });
         buttonBigData.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { setDifficulty(Difficulties.BIGDATA); }
+            public void onClick(View v) { setDifficulty(computerType.BIGDATA); }
         });
 
         // start
@@ -63,14 +63,14 @@ public class PregameActivity extends AppCompatActivity {
         buttonStartGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), GameActivity.class);
-                intent.putExtra("figure", figure);
-                intent.putExtra("difficulty", difficulty);
+                intent.putExtra("computerType", computerType);
+                intent.putExtra("selectedPlayer", selectedPlayer);
                 startActivity(intent);
             }
         });
     }
 
-    private void setDifficulty(Difficulties d) {
+    private void setDifficulty(Computer computerType) {
         Button buttonNone = findViewById(R.id.ComputerNone);
         Button buttonRandom = findViewById(R.id.ComputerRandom);
         Button buttonLogic = findViewById(R.id.ComputerLogic);
@@ -85,25 +85,25 @@ public class PregameActivity extends AppCompatActivity {
         buttonMinMax.setBackground(buttonBackground);
         buttonBigData.setBackground(buttonBackground);
 
-        switch (d) {
+        switch (computerType) {
             case NONE:
-                this.difficulty = Difficulties.NONE;
+                this.computerType = Computer.NONE;
                 buttonNone.setBackground(buttonSelectedBackground);
                 break;
             case RANDOM:
-                this.difficulty = Difficulties.RANDOM;
+                this.computerType = Computer.RANDOM;
                 buttonRandom.setBackground(buttonSelectedBackground);
                 break;
             case LOGIC:
-                this.difficulty = Difficulties.LOGIC;
+                this.computerType = Computer.LOGIC;
                 buttonLogic.setBackground(buttonSelectedBackground);
                 break;
             case MINMAX:
-                this.difficulty = Difficulties.MINMAX;
+                this.computerType = Computer.MINMAX;
                 buttonMinMax.setBackground(buttonSelectedBackground);
                 break;
             case BIGDATA:
-                this.difficulty = Difficulties.BIGDATA;
+                this.computerType = Computer.BIGDATA;
                 buttonBigData.setBackground(buttonSelectedBackground);
                 break;
             default:
@@ -111,15 +111,15 @@ public class PregameActivity extends AppCompatActivity {
         }
     }
 
-    private void setFigure(Figures f) {
+    private void setFigure(Player player) {
         Button buttonX = findViewById(R.id.X);
         Button buttonO = findViewById(R.id.O);
         buttonX.setTextColor(getResources().getColor(R.color.text_color));
         buttonO.setTextColor(getResources().getColor(R.color.text_color));
 
-        this.figure = f;
+        this.selectedPlayer = player;
 
-        switch (f) {
+        switch (player) {
             case X:
                 buttonX.setTextColor(getResources().getColor(R.color.red));
                 break;
